@@ -13,6 +13,7 @@ class DataTableTagLib {
         def events = attrs.remove('events') ?: []
         def namespace = attrs.remove('namespace') ?: 'window'
         def config = attrs.remove('config') ?: [:]
+        def liquidWidth = attrs.remove('liquidWidth')?.toBoolean() ?: false
 
         def elementID = "grailsYuiDataTableEl_${id}"
         def dataTableID = "${namespace}.grailsYuiDataTable_${id}"
@@ -20,6 +21,9 @@ class DataTableTagLib {
 
         pageScope.dataSourceID = dataSourceID
 
+        if (liquidWidth) {
+            events << [type: 'postRenderEvent', fn: 'function() { alert("called"); this.getTableEl().style.width = "100%"; }']
+        }
         def eventStrings = Util.buildEventStrings(dataTableID, events)
 
 
@@ -50,6 +54,7 @@ class DataTableTagLib {
         def events = attrs.remove('events') ?: []
         def namespace = attrs.remove('namespace') ?: 'window'
         def config = attrs.remove('config') ?: [:]
+        def liquidWidth = attrs.remove('liquidWidth')?.toBoolean() ?: false
 
         def elementID = "grailsYuiDataTableEl_${id}"
         def dataTableID = "${namespace}.grailsYuiDataTable_${id}"
@@ -57,6 +62,9 @@ class DataTableTagLib {
 
         pageScope.dataSourceID = dataSourceID
 
+//        if (liquidWidth) {
+//            events << [type: 'postRenderEvent', fn: 'function() { this.getTableEl().style.width = "100%"; }']
+//        }
         def eventStrings = Util.buildEventStrings(dataTableID, events)
 
 
@@ -78,5 +86,14 @@ class DataTableTagLib {
 </script>
         """
     }
+
+
+    //TODO: Liquid Width of Grid can be done via PostRenderEvent or specific CSS Rule.  Need to decide which is better
+    //TODO: Lots of copy/paste in here.  Need common code
+
+    //TODO: Liquid Width on Scrollable -- wont work w/o heavy customization. Grid can be set to 100% width via external config.
+    //TODO: Liquid Width on Scrollable -- internal table set to 100% works.  header columns are seperate though.
+    //TODO: Liquid Width on Scrollable -- need solution that follows containing element size and sets internals acoordingly
+
 
 }

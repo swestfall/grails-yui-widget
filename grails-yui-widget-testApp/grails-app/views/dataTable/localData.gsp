@@ -13,11 +13,15 @@
         <meta name="layout" content="main"/>
         <script type="text/javascript">
 
-            var cellMousedownEvent_Handler = function() {
+            window.cellMousedownEvent_Handler = function() {
                 //alert('cellMousedownEvent_Handler fired');
             }
-            var cellMouseoutEvent_Handler = function() {
+            window.cellMouseoutEvent_Handler = function() {
                 //alert('cellMouesoutEvent_Handler fired');
+            }
+            window.postRenderEvent_Handler = function(oEvent, oDataTable, oScope) {
+                debugger;
+                oDataTable.getTableEl().style.width = "100%";
             }
 
             grails = {};
@@ -45,9 +49,10 @@
                     [key: "lastChange", sortable: true, resizeable: true, formatter: '@grails.yui.formatters.formatDate']
             ]
 
+            //grails.yui.components.grailsYuiDataTable_testTable
             def events = [
-                    [type: 'cellMousedownEvent', fn: 'this.cellMousedownEvent_Handler', obj: '{}', scope: 'this'],
-                    [type: 'cellMouseoutEvent', fn: 'this.cellMouseoutEvent_Handler', obj: '{}', scope: 'this']
+                    [type: 'cellMousedownEvent', fn: 'window.cellMousedownEvent_Handler', obj: '{}', scope: 'this'],
+                    [type: 'cellMouseoutEvent', fn: 'window.cellMouseoutEvent_Handler', obj: '{}', scope: 'this']
             ]
         %>
 
@@ -56,6 +61,7 @@
                     id="testTable"
                     columns="${columns}"
                     events="${events}"
+                    liquidWidth="${true}"
                     namespace="grails.yui.components"
                     config="${[caption: 'DataTable Caption']}">
                 <yuiWidget:yuiDataSource

@@ -12,10 +12,10 @@
         <title>Example of YUI DataTable with Scrolling Enabled</title>
         <meta name="layout" content="main"/>
         <script type="text/javascript">
-            var cellMousedownEvent_Handler = function() {
+            window.cellMousedownEvent_Handler = function() {
                 //alert('cellMousedownEvent_Handler fired');
             }
-            var cellMouseoutEvent_Handler = function() {
+            window.cellMouseoutEvent_Handler = function() {
                 //alert('cellMouesoutEvent_Handler fired');
             }
 
@@ -37,26 +37,27 @@
 
         <%
             def columns = [
-                    [key: "id", width: 100, sortable: true, resizeable: true],
-                    [key: "company", width: 100, sortable: true, resizeable: true],
-                    [key: "price", width: 100, sortable: true, resizeable: true, formatter: 'currency'],
-                    [key: "change", width: 100, sortable: true, resizeable: true],
-                    [key: "percentChange", width: 100, sortable: true, resizeable: true],
-                    [key: "lastChange", width: 100, sortable: true, resizeable: true, formatter: '@grails.yui.formatters.formatDate']
+                    [key: "id", sortable: true, resizeable: true],
+                    [key: "company", sortable: true, resizeable: true],
+                    [key: "price", sortable: true, resizeable: true, formatter: 'currency'],
+                    [key: "change", sortable: true, resizeable: true],
+                    [key: "percentChange", sortable: true, resizeable: true],
+                    [key: "lastChange", sortable: true, resizeable: true, formatter: '@grails.yui.formatters.formatDate']
             ]
 
             def events = [
-                    [type: 'cellMousedownEvent', fn: 'this.cellMousedownEvent_Handler', obj: '{}', scope: 'this'],
-                    [type: 'cellMouseoutEvent', fn: 'this.cellMouseoutEvent_Handler', obj: '{}', scope: 'this']
+                    [type: 'cellMousedownEvent', fn: 'window.cellMousedownEvent_Handler', obj: '{}', scope: 'this'],
+                    [type: 'cellMouseoutEvent', fn: 'window.cellMouseoutEvent_Handler', obj: '{}', scope: 'this']
             ]
         %>
 
-        <div style="height: width: 100%; padding: 20px;">
+        <div style="height: width: 'auto'; padding: 20px;">
             <yuiWidget:yuiScrollingDataTable
                     id="testTable"
                     columns="${columns}"
                     events="${events}"
                     namespace="grails.yui.components"
+                    liquidWidth="${true}"
                     config="${[caption: 'DataTable Caption', height: '100px']}">
                 <yuiWidget:yuiDataSource
                         data="${stocks}"
