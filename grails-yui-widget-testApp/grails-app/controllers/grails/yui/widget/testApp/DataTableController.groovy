@@ -12,4 +12,9 @@ class DataTableController {
         List stocks = Stock.findAll()
         return [stocks: stocks]
     }
+
+    def scrollingGrid = {
+        List stocks = Stock.findAll()
+        return [stocks: stocks]
+    }
 }
