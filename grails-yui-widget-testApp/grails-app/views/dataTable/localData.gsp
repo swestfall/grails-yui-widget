@@ -26,6 +26,7 @@
             grails.yui.formatters = {};
 
             grails.yui.formatters.formatDate = function() {
+
             }
         </script>
     </head>
@@ -41,7 +42,7 @@
                     [key: "price", sortable: true, resizeable: true, formatter: 'currency'],
                     [key: "change", sortable: true, resizeable: true],
                     [key: "percentChange", sortable: true, resizeable: true],
-                    [key: "lastChange", sortable: true, resizeable: true, formatter: '@function(){debugger;}']
+                    [key: "lastChange", sortable: true, resizeable: true, formatter: '@grails.yui.formatters.formatDate']
             ]
 
             def events = [

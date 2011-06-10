@@ -32,7 +32,7 @@ class DataTableTagLib {
         ${body()}
 
         ${dataTableID} = new YAHOO.widget.DataTable("${elementID}",
-            ${columns as JSON}, ${dataSourceID}, ${config as JSON});
+            ${Util.toJSON(columns)}, ${dataSourceID}, ${config as JSON});
 
         //attach any events created
         ${eventStrings.join()}

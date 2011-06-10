@@ -11,4 +11,12 @@ public class Util {
         }
         return eventStrings;
     }
+
+    public static String toJSON(Object obj) {
+        if (obj instanceof Map) {
+            return new org.json.JSONObject(((Map) obj)).toString();
+        } else if (obj instanceof ArrayList) {
+            return new org.json.JSONArray(((Collection) obj)).toString();
+        }
+    }
 }
