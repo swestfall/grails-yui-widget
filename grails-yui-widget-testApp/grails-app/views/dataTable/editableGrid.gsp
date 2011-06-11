@@ -33,12 +33,12 @@
     <body>
 
         <div>Example of a local data source</div>
-        <a href="http://developer.yahoo.com/yui/examples/datatable/dt_fixedscroll.html">YUI 2 Example</a>
+        <a href="http://developer.yahoo.com/yui/examples/datatable/dt_cellediting.html">YUI 2 Example</a>
 
         <%
             def columns = [
                     [key: "id", sortable: true, resizeable: true],
-                    [key: "company", sortable: true, resizeable: true],
+                    [key: "company", sortable: true, resizeable: true, editor: '@new YAHOO.widget.TextboxCellEditor()'],
                     [key: "price", sortable: true, resizeable: true, formatter: 'currency'],
                     [key: "change", sortable: true, resizeable: true],
                     [key: "percentChange", sortable: true, resizeable: true],
@@ -52,12 +52,13 @@
         %>
 
         <div style="height: width: 'auto'; padding: 20px;">
-            <yuiWidget:yuiScrollingDataTable
+            <yuiWidget:yuiDataTable
                     id="testTable"
                     columns="${columns}"
                     events="${events}"
                     namespace="grails.yui.components"
                     liquidWidth="${true}"
+                    editable="${true}"
                     config="${[caption: 'DataTable Caption', height: '100px']}">
                 <yuiWidget:yuiDataSource
                         data="${stocks}"
@@ -65,7 +66,7 @@
                         responseSchema="${[
                             fields: ['id', 'company', 'price', 'change', 'percentChange', 'lastChange']
                     ]}"/>
-            </yuiWidget:yuiScrollingDataTable>
+            </yuiWidget:yuiDataTable>
         </div>
 
     </body>

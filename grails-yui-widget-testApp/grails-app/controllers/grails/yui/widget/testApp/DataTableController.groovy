@@ -17,4 +17,9 @@ class DataTableController {
         List stocks = Stock.findAll()
         return [stocks: stocks]
     }
+
+    def editableGrid = {
+        List stocks = Stock.findAll()
+        return [stocks: stocks]
+    }
 }

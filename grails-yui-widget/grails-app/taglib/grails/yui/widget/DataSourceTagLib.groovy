@@ -18,9 +18,9 @@ class DataSourceTagLib {
         def eventStrings = Util.buildEventStrings(dataSourceID, events)
 
         out << """
-        ${dataSourceID} = new YAHOO.util.DataSource(${data as JSON}, ${config as JSON});
+        ${dataSourceID} = new YAHOO.util.DataSource(${data as JSON}, ${Util.toJSON(config)});
         ${dataSourceID}.responseType = "${responseType}";
-        ${dataSourceID}.responseScehma = ${responseSchema as JSON}
+        ${dataSourceID}.responseSchema = ${Util.toJSON(responseSchema)}
 
         //attach any events created
         ${eventStrings.join()}

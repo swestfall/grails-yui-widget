@@ -14,6 +14,7 @@ class DataTableTagLib {
         def namespace = attrs.remove('namespace') ?: 'window'
         def config = attrs.remove('config') ?: [:]
         def liquidWidth = attrs.remove('liquidWidth')?.toBoolean() ?: false
+        def editable = attrs.remove('editable')?.toBoolean() ?: false
 
         def elementID = "grailsYuiDataTableEl_${id}"
         def dataTableID = "${namespace}.grailsYuiDataTable_${id}"
@@ -22,7 +23,10 @@ class DataTableTagLib {
         pageScope.dataSourceID = dataSourceID
 
         if (liquidWidth) {
-            events << [type: 'postRenderEvent', fn: 'function() { alert("called"); this.getTableEl().style.width = "100%"; }']
+            events << [type: 'postRenderEvent', fn: 'function() { this.getTableEl().style.width = "100%"; }']
+        }
+        if (editable) {
+            events << [type: 'cellClickEvent', fn: "${dataTableID}.onEventShowCellEditor"]
         }
         def eventStrings = Util.buildEventStrings(dataTableID, events)
 
@@ -36,7 +40,7 @@ class DataTableTagLib {
         ${body()}
 
         ${dataTableID} = new YAHOO.widget.DataTable("${elementID}",
-            ${Util.toJSON(columns)}, ${dataSourceID}, ${config as JSON});
+            ${Util.toJSON(columns)}, ${dataSourceID}, ${Util.toJSON(config)});
 
         //attach any events created
         ${eventStrings.join()}
@@ -55,6 +59,7 @@ class DataTableTagLib {
         def namespace = attrs.remove('namespace') ?: 'window'
         def config = attrs.remove('config') ?: [:]
         def liquidWidth = attrs.remove('liquidWidth')?.toBoolean() ?: false
+        def editable = attrs.remove('editable')?.toBoolean() ?: false
 
         def elementID = "grailsYuiDataTableEl_${id}"
         def dataTableID = "${namespace}.grailsYuiDataTable_${id}"
@@ -62,9 +67,13 @@ class DataTableTagLib {
 
         pageScope.dataSourceID = dataSourceID
 
-//        if (liquidWidth) {
-//            events << [type: 'postRenderEvent', fn: 'function() { this.getTableEl().style.width = "100%"; }']
-//        }
+        //TODO: liquidWidth doesnt work
+        if (liquidWidth) {
+            events << [type: 'postRenderEvent', fn: 'function() { this.getTableEl().style.width = "100%"; }']
+        }
+        if (editable) {
+            events << [type: 'cellClickEvent', fn: "${dataTableID}.onEventShowCellEditor"]
+        }
         def eventStrings = Util.buildEventStrings(dataTableID, events)
 
 
@@ -77,7 +86,7 @@ class DataTableTagLib {
         ${body()}
 
         ${dataTableID} = new YAHOO.widget.ScrollingDataTable("${elementID}",
-            ${Util.toJSON(columns)}, ${dataSourceID}, ${config as JSON});
+            ${Util.toJSON(columns)}, ${dataSourceID}, ${Util.toJSON(columns)});
 
         //attach any events created
         ${eventStrings.join()}
@@ -86,7 +95,6 @@ class DataTableTagLib {
 </script>
         """
     }
-
 
     //TODO: Liquid Width of Grid can be done via PostRenderEvent or specific CSS Rule.  Need to decide which is better
     //TODO: Lots of copy/paste in here.  Need common code
