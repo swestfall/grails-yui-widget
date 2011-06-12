@@ -28,12 +28,12 @@
                     id="id"
                     namespace="grails.yui.components">
                 <yuiWidget:yuiXHRDataSource
-                        url="${createLink(controller: 'autoComplete', action: 'searchStockByCompanyJSON')}"
+                        url="${createLink(controller: 'autoComplete', action: 'searchStockByCompanyXML')}"
                         config="${[
-                            responseType : '@YAHOO.util.DataSource.TYPE_JSON',
+                            responseType : '@YAHOO.util.DataSource.TYPE_XML',
                             responseSchema: [
-                                    resultsList: 'results',
-                                    fields: ['companyName']
+                                    resultNode: 'map',
+                                    fields: ['entry']
                             ]
                         ]}"/>
             </yuiWidget:yuiAutoComplete>
