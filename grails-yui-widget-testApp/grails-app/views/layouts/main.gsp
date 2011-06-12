@@ -12,13 +12,20 @@
         <script type="text/javascript" src="${createLinkTo(dir: 'js/yui-2.9.0/element', file: 'element-min.js')}"></script>
         <script type="text/javascript" src="${createLinkTo(dir: 'js/yui-2.9.0/utilities', file: 'utilities.js')}"></script>
         <script type="text/javascript" src="${createLinkTo(dir: 'js/yui-2.9.0/calendar', file: 'calendar-min.js')}"></script>
+        <script type="text/javascript" src="${resource(dir: 'js/yui-2.9.0/animation', file: 'animation.js')}"></script>
+
+        <!-- yui2 datasource resources -->
+        <script type="text/javascript" src="${createLinkTo(dir: 'js/yui-2.9.0/datasource', file: 'datasource.js')}"></script>
 
         <!-- yui2 datatable resources -->
         <link type="text/css" rel="stylesheet" href="${resource(dir: 'js/yui-2.9.0/datatable/assets/skins/sam', file: 'datatable.css')}"/>
-        <script type="text/javascript" src="${createLinkTo(dir: 'js/yui-2.9.0/datasource', file: 'datasource-min.js')}"></script>
         <script type="text/javascript" src="${createLinkTo(dir: 'js/yui-2.9.0/datatable', file: 'datatable-min.js')}"></script>
         <script type="text/javascript" src="${createLinkTo(dir: 'js/yui-2.9.0/container', file: 'container_core-min.js')}"></script>
         <script type="text/javascript" src="${createLinkTo(dir: 'js/yui-2.9.0/menu', file: 'menu-min.js')}"></script>
+
+        <!-- yui2 autocomplete resources -->
+        <link type="text/css" rel="stylesheet" href="${resource(dir: 'js/yui-2.9.0/autocomplete/assets/skins/sam', file: 'autocomplete.css')}"/>
+        <script type="text/javascript" src="${resource(dir: 'js/yui-2.9.0/autocomplete', file: 'autocomplete.js')}"></script>
 
         <link rel="stylesheet" href="${resource(dir: 'css', file: 'main.css')}"/>
         <link rel="shortcut icon" href="${resource(dir: 'images', file: 'favicon.ico')}" type="image/x-icon"/>

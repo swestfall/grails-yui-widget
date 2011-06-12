@@ -15,6 +15,8 @@
     <body>
         <a href="${createLink(controller: 'dataTable', action: 'localData')}">Local Data Example</a>
         <br/>
-        <a href="${createLink(controller: 'dataTable', action: 'scrollingGrid')}">Scrolling Example</a>
+        <a href="${createLink(controller: 'dataTable', action: 'scrollingGrid')}">Scrolling Grid Example</a>
+        <br/>
+        <a href="${createLink(controller: 'dataTable', action: 'editableGrid')}">Editable Grid Example</a>
     </body>
 </html>

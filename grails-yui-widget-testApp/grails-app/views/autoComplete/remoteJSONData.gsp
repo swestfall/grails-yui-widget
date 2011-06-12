@@ -21,14 +21,14 @@
     <body>
 
         <div>Example of a local data source</div>
-        <a href="http://developer.yahoo.com/yui/examples/autocomplete/ac_basic_array.html">YUI 2 Example</a>
+        <a href="http://developer.yahoo.com/yui/examples/autocomplete/ac_basic_xhr.html">YUI 2 Example</a>
 
         <div style="width: 150px">
             <yuiWidget:yuiAutoComplete
                     id="id"
                     namespace="grails.yui.components">
-                <yuiWidget:yuiLocalDataSource
-                        data="${stocks}"
+                <yuiWidget:yuiXHRDataSource
+                        url="${createLink(controller: 'autoComplete', action: 'searchStockByCompany')}"
                         config="${[
                             responseType : '@YAHOO.util.DataSource.TYPE_JSARRAY',
                             responseSchema: [

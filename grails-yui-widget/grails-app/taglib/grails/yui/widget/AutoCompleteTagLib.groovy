@@ -24,20 +24,16 @@ class AutoCompleteTagLib {
         out << """
 
 <div id="${elementID}">
-	<input id="${inputID}" type="text">
+	<input id="${inputID}" type="text" value="">
 	<div id="${containerID}"></div>
 </div>
 
 <script type="text/javascript">
     YAHOO.util.Event.onDOMReady(function(){
-
         ${body()}
-
-        ${autoCompleteID} = new YAHOO.widget.AutoComplete("${elementID}", "${containerID}", ${dataSourceID});
-
+        ${autoCompleteID} = new YAHOO.widget.AutoComplete("${inputID}", "${containerID}", ${dataSourceID});
         //attach any events created
         ${eventStrings.join()}
-
      });
 </script>
         """

@@ -15,5 +15,6 @@
     <body>
         <a href="${createLink(controller: 'autoComplete', action: 'localData')}">Local Data Example</a>
         <br/>
+        <a href="${createLink(controller: 'autoComplete', action: 'remoteJSONData')}">Remote JSON Data Example</a>
     </body>
 </html>

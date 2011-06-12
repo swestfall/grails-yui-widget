@@ -64,12 +64,14 @@
                     liquidWidth="${true}"
                     namespace="grails.yui.components"
                     config="${[caption: 'DataTable Caption']}">
-                <yuiWidget:yuiDataSource
+                <yuiWidget:yuiLocalDataSource
                         data="${stocks}"
-                        responseType="YAHOO.util.DataSource.TYPE_JSARRAY"
-                        responseSchema="${[
-                            fields: ['id', 'company', 'price', 'change', 'percentChange', 'lastChange']
-                    ]}"/>
+                        config="${[
+                            responseType : '@YAHOO.util.DataSource.TYPE_JSARRAY',
+                            responseSchema: [
+                                    fields: ['id', 'company', 'price', 'change', 'percentChange', 'lastChange']
+                            ]
+                        ]}"/>
             </yuiWidget:yuiDataTable>
         </div>
 

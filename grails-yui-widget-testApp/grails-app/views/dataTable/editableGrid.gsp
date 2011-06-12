@@ -60,12 +60,14 @@
                     liquidWidth="${true}"
                     editable="${true}"
                     config="${[caption: 'DataTable Caption', height: '100px']}">
-                <yuiWidget:yuiDataSource
+                <yuiWidget:yuiLocalDataSource
                         data="${stocks}"
-                        responseType="YAHOO.util.DataSource.TYPE_JSARRAY"
-                        responseSchema="${[
-                            fields: ['id', 'company', 'price', 'change', 'percentChange', 'lastChange']
-                    ]}"/>
+                        config="${[
+                            responseType : '@YAHOO.util.DataSource.TYPE_JSARRAY',
+                            responseSchema: [
+                                    fields: ['id', 'company', 'price', 'change', 'percentChange', 'lastChange']
+                            ]
+                        ]}"/>
             </yuiWidget:yuiDataTable>
         </div>
 
