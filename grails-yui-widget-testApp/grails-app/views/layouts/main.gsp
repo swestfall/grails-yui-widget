@@ -30,6 +30,8 @@
         <link rel="stylesheet" href="${resource(dir: 'css', file: 'main.css')}"/>
         <link rel="shortcut icon" href="${resource(dir: 'images', file: 'favicon.ico')}" type="image/x-icon"/>
 
+        <yuiWidget:javascript />
+
     </head>
     <body class="yui-skin-sam">
         <div id="spinner" class="spinner" style="display:none;">

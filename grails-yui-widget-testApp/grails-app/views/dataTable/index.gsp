@@ -18,5 +18,9 @@
         <a href="${createLink(controller: 'dataTable', action: 'scrollingGrid')}">Scrolling Grid Example</a>
         <br/>
         <a href="${createLink(controller: 'dataTable', action: 'editableGrid')}">Editable Grid Example</a>
+        <br/>
+        <a href="${createLink(controller: 'dataTable', action: 'remoteJSONData')}">Remote JSON Example</a>
+        <br/>
+        <a href="${createLink(controller: 'dataTable', action: 'remoteJSONDataWithSorting')}">Remote JSON With Sorting Example</a>
     </body>
 </html>
