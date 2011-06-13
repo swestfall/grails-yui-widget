@@ -48,6 +48,7 @@ class DataTableController {
         List stocks = Stock.list(pagingParams)
         Map returnMap = [
                 totalRecords: Stock.count(),
+                startIndex: pagingParams.offset,
                 results: stocks
         ]
         render returnMap as JSON

@@ -14,6 +14,14 @@ public class Util {
         return eventStrings;
     }
 
+    public static List<String> buildPropStrings(String name, List props){
+        List<String> propStrings = []
+        props.each(){ prop ->
+            propStrings << "${name}.${prop.name} = ${prop.val}"
+        }
+        return propStrings
+    }
+
     public static String toJSON(Object obj) {
         if (obj instanceof Map) {
             return new org.json.JSONObject(((Map) obj)).toString();

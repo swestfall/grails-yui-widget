@@ -5,6 +5,7 @@ Global Tasks
 4. Examples of Extension
 5. Examples of Customization via External project
 6. ReSkinning.
+7. Would somethign like a JS apply against a JSON be better than current Props evaluation?
 
 DataTable Tasks
 1. JSON over XHR

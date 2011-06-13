@@ -11,6 +11,7 @@ class DataTableTagLib {
         def id = attrs.remove('id')
         def columns = attrs.remove('columns')
         def events = attrs.remove('events') ?: []
+        def props = attrs.remove('props') ?: []
         def namespace = attrs.remove('namespace') ?: 'window'
         def config = attrs.remove('config') ?: [:]
         def liquidWidth = attrs.remove('liquidWidth')?.toBoolean() ?: false
@@ -40,6 +41,9 @@ class DataTableTagLib {
         }
         def eventStrings = Util.buildEventStrings(dataTableID, events)
 
+        //build the property strings out
+        def propStrings = Util.buildPropStrings(dataTableID, props)
+
         out << """
 <div id="${elementID}"></div>
 
@@ -51,8 +55,14 @@ class DataTableTagLib {
         ${dataTableID} = new YAHOO.widget.DataTable("${elementID}",
             ${Util.toJSON(columns)}, ${dataSourceID}, ${Util.toJSON(config)});
 
+        //attach any properties
+        ${propStrings.join()}
+
         //attach any events created
         ${eventStrings.join()}
+
+
+
 
      });
 </script>
@@ -108,6 +118,8 @@ class DataTableTagLib {
 
         ${dataTableID} = new YAHOO.widget.ScrollingDataTable("${elementID}",
             ${Util.toJSON(columns)}, ${dataSourceID}, ${Util.toJSON(columns)});
+
+        ${dataTableID}.doBeforeLoadData = window.doBeforeLoadData
 
         //attach any events created
         ${eventStrings.join()}

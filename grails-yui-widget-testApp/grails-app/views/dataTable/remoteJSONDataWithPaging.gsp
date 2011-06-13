@@ -11,28 +11,6 @@
     <head>
         <title>Example of YUI DataTable with Local Data</title>
         <meta name="layout" content="main"/>
-        <script type="text/javascript">
-
-            window.cellMousedownEvent_Handler = function() {
-                //alert('cellMousedownEvent_Handler fired');
-            }
-            window.cellMouseoutEvent_Handler = function() {
-                //alert('cellMouesoutEvent_Handler fired');
-            }
-            window.postRenderEvent_Handler = function(oEvent, oDataTable, oScope) {
-                debugger;
-                oDataTable.getTableEl().style.width = "100%";
-            }
-
-            grails = {};
-            grails.yui = {};
-            grails.yui.components = {};
-            grails.yui.formatters = {};
-
-            grails.yui.formatters.formatDate = function() {
-
-            }
-        </script>
     </head>
     <body>
 
@@ -49,11 +27,11 @@
                     [key: "lastChange", sortable: true, resizeable: true, formatter: '@grails.yui.formatters.formatDate']
             ]
 
-            //grails.yui.components.grailsYuiDataTable_testTable
-            def events = [
-                    [type: 'cellMousedownEvent', fn: 'window.cellMousedownEvent_Handler', obj: '{}', scope: 'this'],
-                    [type: 'cellMouseoutEvent', fn: 'window.cellMouseoutEvent_Handler', obj: '{}', scope: 'this']
+            def props = [
+                    [name: 'doBeforeLoadData', val: 'grails.yui.util.doBeforeLoadData']
             ]
+
+            def events = []
         %>
 
         <div style="height: 100%; width: 100%; padding: 20px;">
@@ -61,6 +39,7 @@
                     id="testTable"
                     columns="${columns}"
                     events="${events}"
+                    props="${props}"
                     namespace="grails.yui.components"
                     config="${[
                             generateRequest: '@grails.yui.util.buildQueryString',
@@ -73,8 +52,12 @@
                         config="${[
                             responseType : '@YAHOO.util.DataSource.TYPE_JSON',
                             responseSchema: [
-                                    resultsList: 'results',
-                                    fields: ['id', 'company', 'price', 'change', 'percentChange', 'lastChange']
+                                resultsList: 'results',
+                                fields: ['id', 'company', 'price', 'change', 'percentChange', 'lastChange'],
+                                metaFields: [
+                                    totalRecords: 'totalRecords',
+                                    startIndex: 'startIndex'
+                                ]
                             ]
                         ]}"/>
                 <yuiWidget:yuiPaginator

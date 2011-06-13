@@ -1,4 +1,4 @@
-if (!grails) {
+if (!window.grails) {
     grails = {};
 }
 
@@ -23,6 +23,7 @@ grails.yui.util = {
         var order = (oState.sortedBy && oState.sortedBy.dir === YAHOO.widget.DataTable.CLASS_DESC) ? "desc" : "asc";
         var offset = (oState.pagination) ? oState.pagination.recordOffset : 0;
         var max = (oState.pagination) ? oState.pagination.rowsPerPage : 25;
+        debugger;
 
         // Build custom request
         var queryString = "?sort=" + sort +
@@ -31,5 +32,11 @@ grails.yui.util = {
                 "&max=" + max
 
         return queryString;
+    },
+    doBeforeLoadData : function(oRequest, oResponse, oPayload) {
+        debugger;
+        oPayload.totalRecords = oResponse.meta.totalRecords;
+        oPayload.pagination.recordOffset = oResponse.meta.startIndex;
+        return oPayload;
     }
-};
+}
