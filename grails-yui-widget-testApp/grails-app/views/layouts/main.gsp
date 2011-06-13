@@ -27,6 +27,11 @@
         <link type="text/css" rel="stylesheet" href="${resource(dir: 'js/yui-2.9.0/autocomplete/assets/skins/sam', file: 'autocomplete.css')}"/>
         <script type="text/javascript" src="${resource(dir: 'js/yui-2.9.0/autocomplete', file: 'autocomplete.js')}"></script>
 
+        <!-- yui2 paginator resources -->
+        <link type="text/css" rel="stylesheet" href="${resource(dir: 'js/yui-2.9.0/paginator/assets/skins/sam', file: 'paginator.css')}"/>
+        <script type="text/javascript" src="${resource(dir: 'js/yui-2.9.0/paginator', file: 'paginator-min.js')}"></script>
+
+
         <link rel="stylesheet" href="${resource(dir: 'css', file: 'main.css')}"/>
         <link rel="shortcut icon" href="${resource(dir: 'images', file: 'favicon.ico')}" type="image/x-icon"/>
 

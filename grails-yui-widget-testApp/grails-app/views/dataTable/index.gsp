@@ -22,5 +22,7 @@
         <a href="${createLink(controller: 'dataTable', action: 'remoteJSONData')}">Remote JSON Example</a>
         <br/>
         <a href="${createLink(controller: 'dataTable', action: 'remoteJSONDataWithSorting')}">Remote JSON With Sorting Example</a>
+        <br/>
+        <a href="${createLink(controller: 'dataTable', action: 'remoteJSONDataWithPaging')}">Remote JSON With Paging Example</a>
     </body>
 </html>

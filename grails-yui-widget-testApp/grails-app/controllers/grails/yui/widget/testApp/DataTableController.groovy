@@ -31,6 +31,10 @@ class DataTableController {
 
     }
 
+    def remoteJSONDataWithPaging = {
+
+    }
+
     def getStocksJSON = {
         List stocks = Stock.findAll()
         Map returnMap = [
