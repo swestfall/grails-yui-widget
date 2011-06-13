@@ -28,7 +28,7 @@
             ]
 
             def props = [
-                    [name: 'doBeforeLoadData', val: 'grails.yui.util.doBeforeLoadData']
+                    'handleDataReturnPayload': '@grails.yui.util.handleDataReturnPayload'
             ]
 
             def events = []
@@ -43,7 +43,7 @@
                     namespace="grails.yui.components"
                     config="${[
                             generateRequest: '@grails.yui.util.buildQueryString',
-                            initialRequest: '@grails.yui.util.buildQueryString()',
+                            initialRequest: '?max=5&offset=0&sort=id&order=asc',
                             dynamicData: true,
                             sortedBy: [key: 'id', dir: '@YAHOO.widget.DataTable.CLASS_ASC']
                         ]}">
@@ -55,8 +55,7 @@
                                 resultsList: 'results',
                                 fields: ['id', 'company', 'price', 'change', 'percentChange', 'lastChange'],
                                 metaFields: [
-                                    totalRecords: 'totalRecords',
-                                    startIndex: 'startIndex'
+                                    totalRecords: 'totalRecords'
                                 ]
                             ]
                         ]}"/>

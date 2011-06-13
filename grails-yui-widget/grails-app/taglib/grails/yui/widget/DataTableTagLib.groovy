@@ -41,8 +41,6 @@ class DataTableTagLib {
         }
         def eventStrings = Util.buildEventStrings(dataTableID, events)
 
-        //build the property strings out
-        def propStrings = Util.buildPropStrings(dataTableID, props)
 
         out << """
 <div id="${elementID}"></div>
@@ -56,7 +54,7 @@ class DataTableTagLib {
             ${Util.toJSON(columns)}, ${dataSourceID}, ${Util.toJSON(config)});
 
         //attach any properties
-        ${propStrings.join()}
+        grails.yui.util.applyConfig(${dataTableID}, ${Util.toJSON(props)});
 
         //attach any events created
         ${eventStrings.join()}
