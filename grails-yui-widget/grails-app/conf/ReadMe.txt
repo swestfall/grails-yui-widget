@@ -1,20 +1,22 @@
 Global Tasks
 1. Minimize copied code.
 2. Allow HTML elements to be passed in (instead of plugin creating them)
-3. Build for Extensibility.  Consumers need ability to extend this plugin
-4. Examples of Extension
-5. Examples of Customization via External project
-6. ReSkinning.
-7. Would somethign like a JS apply against a JSON be better than current Props evaluation?
+3. Reskinning
+
+Extensibility
+1. Needs to be extendable / customizable
+    1.1 Examples of extending / overriding Util obj
+    1.2 Examples of extending / overriding Tag Closures
+2. Tags can call other tags via closures.  PreConfiguredComponent.  Examples needed.
 
 DataTable Tasks
-1. JSON over XHR
-2. JSON over XHR with Paging
+1. JSON over XHR (Done)
+2. JSON over XHR with Paging (Done)
 3. XML over XHR
 4. XML over XHR with Paging
 5. Expanding Row
-6. JSON over XHR with Sorting
-7. JSON over XHR with Paging & Sorting
+6. JSON over XHR with Sorting (Done)
+7. JSON over XHR with Paging & Sorting (Done)
 8. XML over XHR with Sorting
 9. XML over XHR with Sorting & Sorting
 

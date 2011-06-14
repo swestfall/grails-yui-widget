@@ -4,6 +4,8 @@ class PaginatorTagLib {
 
     static namespace = "yuiWidget"
 
+    def util = GrailsYuiWidgetUtil.getInstance();
+
     def yuiPaginator = { attrs, body ->
 
         pageScope.usePaginator = true
@@ -11,10 +13,10 @@ class PaginatorTagLib {
         def events = attrs.remove('events') ?: []
         def config = attrs.remove('config') ?: [:]
 
-        def eventStrings = Util.buildEventStrings(paginatorID, events)
+        def eventStrings = util.buildEventStrings(paginatorID, events)
 
         out << """
-        ${paginatorID} = new YAHOO.widget.Paginator(${Util.toJSON(config)});
+        ${paginatorID} = new YAHOO.widget.Paginator(${util.toJSON(config)});
         //attach any events created
         ${eventStrings.join()}
         """

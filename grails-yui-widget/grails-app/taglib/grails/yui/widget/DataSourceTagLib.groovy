@@ -6,6 +6,8 @@ class DataSourceTagLib {
 
     static namespace = "yuiWidget"
 
+    def util = GrailsYuiWidgetUtil.getInstance();
+
     def yuiLocalDataSource = { attrs, body ->
 
         def dataSourceID = pageScope.dataSourceID
@@ -13,10 +15,10 @@ class DataSourceTagLib {
         def events = attrs.remove('events') ?: []
         def config = attrs.remove('config') ?: [:]
 
-        def eventStrings = Util.buildEventStrings(dataSourceID, events)
+        def eventStrings = util.buildEventStrings(dataSourceID, events)
 
         out << """
-        ${dataSourceID} = new YAHOO.util.LocalDataSource(${data as JSON}, ${Util.toJSON(config)});
+        ${dataSourceID} = new YAHOO.util.LocalDataSource(${data as JSON}, ${util.toJSON(config)});
         //attach any events created
         ${eventStrings.join()}
         """
@@ -29,10 +31,10 @@ class DataSourceTagLib {
         def events = attrs.remove('events') ?: []
         def config = attrs.remove('config') ?: [:]
 
-        def eventStrings = Util.buildEventStrings(dataSourceID, events)
+        def eventStrings = util.buildEventStrings(dataSourceID, events)
 
         out << """
-        ${dataSourceID} = new YAHOO.util.XHRDataSource("${url}", ${Util.toJSON(config)});
+        ${dataSourceID} = new YAHOO.util.XHRDataSource("${url}", ${util.toJSON(config)});
         //attach any events created
         ${eventStrings.join()}
         """

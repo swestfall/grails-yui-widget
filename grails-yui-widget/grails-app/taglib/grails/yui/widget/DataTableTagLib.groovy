@@ -1,10 +1,10 @@
 package grails.yui.widget
 
-import grails.converters.JSON
-
 class DataTableTagLib {
 
     static namespace = "yuiWidget"
+
+    def util = GrailsYuiWidgetUtil.getInstance();
 
     def yuiDataTable = { attrs, body ->
 
@@ -39,7 +39,7 @@ class DataTableTagLib {
         if (editable) {
             events << [type: 'cellClickEvent', fn: "${dataTableID}.onEventShowCellEditor"]
         }
-        def eventStrings = Util.buildEventStrings(dataTableID, events)
+        def eventStrings = util.buildEventStrings(dataTableID, events)
 
 
         out << """
@@ -51,10 +51,10 @@ class DataTableTagLib {
         ${internalTags}
 
         ${dataTableID} = new YAHOO.widget.DataTable("${elementID}",
-            ${Util.toJSON(columns)}, ${dataSourceID}, ${Util.toJSON(config)});
+            ${util.toJSON(columns)}, ${dataSourceID}, ${util.toJSON(config)});
 
         //attach any properties
-        grails.yui.util.applyConfig(${dataTableID}, ${Util.toJSON(props)});
+        grails.yui.util.applyConfig(${dataTableID}, ${util.toJSON(props)});
 
         //attach any events created
         ${eventStrings.join()}
@@ -101,7 +101,7 @@ class DataTableTagLib {
         if (editable) {
             events << [type: 'cellClickEvent', fn: "${dataTableID}.onEventShowCellEditor"]
         }
-        def eventStrings = Util.buildEventStrings(dataTableID, events)
+        def eventStrings = util.buildEventStrings(dataTableID, events)
 
 
 
@@ -115,7 +115,7 @@ class DataTableTagLib {
         ${internalTags}
 
         ${dataTableID} = new YAHOO.widget.ScrollingDataTable("${elementID}",
-            ${Util.toJSON(columns)}, ${dataSourceID}, ${Util.toJSON(columns)});
+            ${util.toJSON(columns)}, ${dataSourceID}, ${util.toJSON(columns)});
 
         ${dataTableID}.doBeforeLoadData = window.doBeforeLoadData
 

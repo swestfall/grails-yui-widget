@@ -1,9 +1,11 @@
-package grails.yui.widget.testApp
+package grails.yui.widget.testApp;
 
-import grails.converters.JSON
-import grails.yui.widget.Util
+import grails.converters.JSON;
+import grails.yui.widget.GrailsYuiWidgetUtil;
 
 class DataTableController {
+
+    def util = GrailsYuiWidgetUtil.getInstance();
 
     def index = {
     }
@@ -44,7 +46,7 @@ class DataTableController {
     }
 
     def getStocksJSONSortedPaged = {
-        Map pagingParams = Util.extractPaginationParams(params)
+        Map pagingParams = util.extractPaginationParams(params)
         List stocks = Stock.list(pagingParams)
         Map returnMap = [
                 totalRecords: Stock.count(),

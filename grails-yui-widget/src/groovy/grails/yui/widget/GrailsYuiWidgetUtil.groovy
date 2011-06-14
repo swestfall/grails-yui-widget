@@ -2,9 +2,20 @@ package grails.yui.widget
 
 import org.codehaus.groovy.grails.web.servlet.mvc.GrailsParameterMap
 
-public class Util {
+public class GrailsYuiWidgetUtil {
 
-    public static List<String> buildEventStrings(String name, List events) {
+    private static GrailsYuiWidgetUtil instance;
+
+    private GrailsYuiWidgetUtil() {}
+
+    public static GrailsYuiWidgetUtil getInstance() {
+        if (instance == null) {
+            instance = new GrailsYuiWidgetUtil();
+        }
+        return instance;
+    }
+
+    public List<String> buildEventStrings(String name, List events) {
         List<String> eventStrings = []
         events.each() { it ->
             String obj = it.obj ? it.obj : 'null'
@@ -14,15 +25,15 @@ public class Util {
         return eventStrings;
     }
 
-    public static List<String> buildPropStrings(String name, List props){
+    public List<String> buildPropStrings(String name, List props) {
         List<String> propStrings = []
-        props.each(){ prop ->
+        props.each() { prop ->
             propStrings << "${name}.${prop.name} = ${prop.val}"
         }
         return propStrings
     }
 
-    public static String toJSON(Object obj) {
+    public String toJSON(Object obj) {
         if (obj instanceof Map) {
             return new org.json.JSONObject(((Map) obj)).toString();
         } else if (obj instanceof ArrayList) {
@@ -30,8 +41,7 @@ public class Util {
         }
     }
 
-    //TODO: not sure if this is really necessary
-    public static Map extractPaginationParams(GrailsParameterMap params){
+    public Map extractPaginationParams(GrailsParameterMap params) {
         Map returnMap = [:]
 
         def sort = params.remove('sort')
@@ -39,16 +49,16 @@ public class Util {
         def max = params.remove('max')
         def offset = params.remove('offset')
 
-        if (sort){
+        if (sort) {
             returnMap.sort = sort
         }
-        if (order){
+        if (order) {
             returnMap.order = order
         }
-        if (max){
+        if (max) {
             returnMap.max = max
         }
-        if (offset){
+        if (offset) {
             returnMap.offset = offset
         }
 

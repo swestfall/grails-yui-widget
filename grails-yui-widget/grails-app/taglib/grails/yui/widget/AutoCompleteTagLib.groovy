@@ -2,7 +2,9 @@ package grails.yui.widget
 
 class AutoCompleteTagLib {
 
-    static namespace = "yuiWidget"
+    static namespace = "yuiWidget";
+
+    def util = GrailsYuiWidgetUtil.getInstance();
 
     def yuiAutoComplete = { attrs, body ->
 
@@ -19,7 +21,7 @@ class AutoCompleteTagLib {
 
         pageScope.dataSourceID = dataSourceID
 
-        def eventStrings = Util.buildEventStrings(autoCompleteID, events)
+        def eventStrings = util.buildEventStrings(autoCompleteID, events)
 
         out << """
 
