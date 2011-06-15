@@ -8,20 +8,21 @@ class AutoCompleteTagLib {
 
     def yuiAutoComplete = { attrs, body ->
 
+        //pull the config properties and set defaults
         def id = attrs.remove('id')
         def events = attrs.remove('events') ?: []
-        def namespace = attrs.remove('namespace') ?: 'window'
-        def config = attrs.remove('config') ?: [:] //TODO: can we use a config
+        def namespace = attrs.remove('namespace') ?: 'grails.yui.components'
+        def props = attrs.remove('props') ?: []
 
+        //set ids
         def elementID = "grailsYuiAutoCompleteEl_${id}"
         def inputID = "grailsYuiAutoCompleteInputEl_${id}"
         def containerID = "grailsYuiAutoCompleteContainerEl_${id}"
         def autoCompleteID = "${namespace}.grailsYuiAutoComplete_${id}"
         def dataSourceID = "${namespace}.grailsYuiDataSource_${id}"
 
+        //attach scope for consuming code
         pageScope.dataSourceID = dataSourceID
-
-        def eventStrings = util.buildEventStrings(autoCompleteID, events)
 
         out << """
 
@@ -34,8 +35,8 @@ class AutoCompleteTagLib {
     YAHOO.util.Event.onDOMReady(function(){
         ${body()}
         ${autoCompleteID} = new YAHOO.widget.AutoComplete("${inputID}", "${containerID}", ${dataSourceID});
-        //attach any events created
-        ${eventStrings.join()}
+        grails.yui.util.applyConfig(${autoCompleteID}, ${util.toJSON(props)});
+        ${util.buildEventStrings(autoCompleteID, events).join()}
      });
 </script>
         """

@@ -2,12 +2,13 @@ Global Tasks
 1. Minimize copied code.
 2. Allow HTML elements to be passed in (instead of plugin creating them)
 3. Reskinning
+4. Resource TagLib needs js/css inclusion capability
 
 Extensibility
 1. Needs to be extendable / customizable
     1.1 Examples of extending / overriding Util obj
-    1.2 Examples of extending / overriding Tag Closures
-2. Tags can call other tags via closures.  PreConfiguredComponent.  Examples needed.
+    1.2 Examples of extending / overriding Tag Closures (Done)
+2. Tags can call other tags via closures.  PreConfiguredComponent.  Examples needed. (Done)
 
 DataTable Tasks
 1. JSON over XHR (Done)
