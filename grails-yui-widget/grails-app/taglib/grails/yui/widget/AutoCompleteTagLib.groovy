@@ -13,6 +13,7 @@ class AutoCompleteTagLib {
         def events = attrs.remove('events') ?: []
         def namespace = attrs.remove('namespace') ?: 'grails.yui.components'
         def props = attrs.remove('props') ?: []
+        def methods = attrs.remove('methods') ?: []
 
         //set ids
         def elementID = "grailsYuiAutoCompleteEl_${id}"
@@ -37,6 +38,7 @@ class AutoCompleteTagLib {
         ${autoCompleteID} = new YAHOO.widget.AutoComplete("${inputID}", "${containerID}", ${dataSourceID});
         grails.yui.util.applyConfig(${autoCompleteID}, ${util.toJSON(props)});
         ${util.buildEventStrings(autoCompleteID, events).join()}
+        ${util.buildMethodStrings(autoCompleteID, methods).join()}
      });
 </script>
         """

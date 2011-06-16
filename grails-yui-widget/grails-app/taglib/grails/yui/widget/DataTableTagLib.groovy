@@ -16,6 +16,7 @@ class DataTableTagLib {
         def namespace = attrs.remove('namespace') ?: 'grails.yui.components'
         def config = attrs.remove('config') ?: [:]
         def editable = attrs.remove('editable')?.toBoolean() ?: false
+        def methods = attrs.remove('methods') ?: []
 
         //set ids
         def elementID = "grailsYuiDataTableEl_${id}"
@@ -52,6 +53,8 @@ class DataTableTagLib {
             ${util.toJSON(columns)}, ${dataSourceID}, ${util.toJSON(config)});
         grails.yui.util.applyConfig(${dataTableID}, ${util.toJSON(props)});
         ${util.buildEventStrings(dataTableID, events).join()}
+        ${util.buildMethodStrings(dataTableID, methods).join()}
+
      });
 </script>
         """
@@ -68,6 +71,7 @@ class DataTableTagLib {
         def namespace = attrs.remove('namespace') ?: 'grails.yui.components'
         def config = attrs.remove('config') ?: [:]
         def editable = attrs.remove('editable')?.toBoolean() ?: false
+        def methods = attrs.remove('methods') ?: []
 
         //set ids
         def elementID = "grailsYuiDataTableEl_${id}"
@@ -103,6 +107,7 @@ class DataTableTagLib {
             ${util.toJSON(columns)}, ${dataSourceID}, ${util.toJSON(config)});
         grails.yui.util.applyConfig(${dataTableID}, ${util.toJSON(props)});
         ${util.buildEventStrings(dataTableID, events).join()}
+        ${util.buildMethodStrings(dataTableID, methods).join()}
      });
 </script>
         """

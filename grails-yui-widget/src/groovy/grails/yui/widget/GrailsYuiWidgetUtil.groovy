@@ -25,6 +25,14 @@ public class GrailsYuiWidgetUtil {
         return eventStrings;
     }
 
+    public List<String> buildMethodStrings(String name, List methods){
+        List<String> methodStrings = []
+        methods.each() { it ->
+            methodStrings << "${name}.${it}; "
+        }
+        return methodStrings;
+    }
+
     public List<String> buildPropStrings(String name, List props) {
         List<String> propStrings = []
         props.each() { prop ->
