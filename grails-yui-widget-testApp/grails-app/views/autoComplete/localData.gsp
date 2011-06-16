@@ -11,12 +11,6 @@
     <head>
         <title>Example of YUI AutoComplete with Local Data</title>
         <meta name="layout" content="main"/>
-        <script type="text/javascript">
-            grails = {};
-            grails.yui = {};
-            grails.yui.components = {};
-            grails.yui.formatters = {};
-        </script>
     </head>
     <body>
 

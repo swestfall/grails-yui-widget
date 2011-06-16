@@ -11,24 +11,6 @@
     <head>
         <title>Example of YUI DataTable with Scrolling Enabled</title>
         <meta name="layout" content="main"/>
-        <script type="text/javascript">
-            window.cellMousedownEvent_Handler = function() {
-                //alert('cellMousedownEvent_Handler fired');
-            }
-            window.cellMouseoutEvent_Handler = function() {
-                //alert('cellMouesoutEvent_Handler fired');
-            }
-
-            grails = {};
-            grails.yui = {};
-            grails.yui.components = {};
-            grails.yui.formatters = {};
-
-            grails.yui.formatters.formatDate = function() {
-
-            }
-
-        </script>
     </head>
     <body>
 
@@ -45,17 +27,13 @@
                     [key: "lastChange", sortable: true, resizeable: true, formatter: '@grails.yui.formatters.formatDate']
             ]
 
-            def events = [
-                    [type: 'cellMousedownEvent', fn: 'window.cellMousedownEvent_Handler', obj: '{}', scope: 'this'],
-                    [type: 'cellMouseoutEvent', fn: 'window.cellMouseoutEvent_Handler', obj: '{}', scope: 'this']
-            ]
+            def events = []
         %>
 
         <div style="height: width: 'auto'; padding: 20px;">
             <yuiWidget:yuiDataTable
                     id="testTable"
                     columns="${columns}"
-                    events="${events}"
                     namespace="grails.yui.components"
                     liquidWidth="${true}"
                     editable="${true}"

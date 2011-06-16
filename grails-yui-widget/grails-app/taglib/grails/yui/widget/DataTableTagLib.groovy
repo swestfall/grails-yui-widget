@@ -100,7 +100,7 @@ class DataTableTagLib {
     YAHOO.util.Event.onDOMReady(function(){
         ${internalTags}
         ${dataTableID} = new YAHOO.widget.ScrollingDataTable("${elementID}",
-            ${util.toJSON(columns)}, ${dataSourceID}, ${util.toJSON(columns)});
+            ${util.toJSON(columns)}, ${dataSourceID}, ${util.toJSON(config)});
         grails.yui.util.applyConfig(${dataTableID}, ${util.toJSON(props)});
         ${util.buildEventStrings(dataTableID, events).join()}
      });

@@ -33,7 +33,7 @@
             <local:liquidYuiDataTable
                     id="testTable"
                     columns="${columns}"
-                    events="${events}"
+                    events="${[]}"
                     namespace="grails.yui.components"
                     config="${[caption: 'DataTable Caption']}">
                 <yuiWidget:yuiLocalDataSource

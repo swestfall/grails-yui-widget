@@ -30,3 +30,7 @@ AutoComplete
 
 
 Dialog
+1. Dialog
+2. SimpleDialog
+3. ToolTip
+

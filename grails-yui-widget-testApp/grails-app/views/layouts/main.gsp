@@ -31,11 +31,18 @@
         <link type="text/css" rel="stylesheet" href="${resource(dir: 'js/yui-2.9.0/paginator/assets/skins/sam', file: 'paginator.css')}"/>
         <script type="text/javascript" src="${resource(dir: 'js/yui-2.9.0/paginator', file: 'paginator-min.js')}"></script>
 
+        <!-- yui2 container resources -->
+        <link type="text/css" rel="stylesheet" href="${resource(dir: 'js/yui-2.9.0/container/assets/skins/sam', file: 'container.css')}"/>
+        <script type="text/javascript" src="${resource(dir: 'js/yui-2.9.0/container', file: 'container-min.js')}"></script>
+
+        <!-- yui2 button resources -->
+        <link type="text/css" rel="stylesheet" href="${resource(dir: 'js/yui-2.9.0/button/assets/skins/sam', file: 'button.css')}"/>
+        <script type="text/javascript" src="${resource(dir: 'js/yui-2.9.0/button', file: 'button-min.js')}"></script>
 
         <link rel="stylesheet" href="${resource(dir: 'css', file: 'main.css')}"/>
         <link rel="shortcut icon" href="${resource(dir: 'images', file: 'favicon.ico')}" type="image/x-icon"/>
 
-        <yuiWidget:javascript />
+        <yuiWidget:javascript/>
 
     </head>
     <body class="yui-skin-sam">
