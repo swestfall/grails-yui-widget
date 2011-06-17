@@ -14,9 +14,11 @@
     </head>
     <body>
         <a href="${createLink(controller: 'dialog', action: 'toolTip')}">Example of YUI ToolTip</a>
-        <br />
+        <br/>
         <a href="${createLink(controller: 'dialog', action: 'simpleDialog')}">Example of YUI Simple Dialog</a>
-        <br />
+        <br/>
         <a href="${createLink(controller: 'dialog', action: 'dialog')}">Example of YUI Dialog</a>
+        <br/>
+        <a href="${createLink(controller: 'dialog', action: 'panel')}">Example of YUI Panel</a>
     </body>
 </html>

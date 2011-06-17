@@ -82,5 +82,30 @@ class DialogTagLib {
         """
     }
 
+    def yuiPanel = { attrs, body ->
+
+        //pull the config properties and set defaults
+        def id = attrs.remove('id')
+        def events = attrs.remove('events') ?: []
+        def config = attrs.remove('config') ?: [:]
+        def namespace = attrs.remove('namespace') ?: 'grails.yui.components'
+        def props = attrs.remove('props') ?: []
+        def methods = attrs.remove('methods') ?: []
+
+        //set ids
+        def panelID = "${namespace}.grailsYuiPanel_${id}"
+
+        out << """
+<script type="text/javascript">
+    YAHOO.util.Event.onDOMReady(function(){
+        ${panelID} = new YAHOO.widget.Panel("${id}", ${util.toJSON(config)});
+        grails.yui.util.applyConfig(${panelID}, ${util.toJSON(props)});
+        ${util.buildEventStrings(panelID, events).join()}
+        ${util.buildMethodStrings(panelID, methods).join()}
+     });
+</script>
+        """
+    }
+
 }
 

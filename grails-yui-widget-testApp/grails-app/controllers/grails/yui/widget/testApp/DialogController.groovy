@@ -9,4 +9,6 @@ class DialogController {
     def simpleDialog = {}
 
     def dialog = {}
+
+    def panel = {}
 }
