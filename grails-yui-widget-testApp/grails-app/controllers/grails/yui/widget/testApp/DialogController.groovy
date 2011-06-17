@@ -7,4 +7,6 @@ class DialogController {
     def toolTip = {}
 
     def simpleDialog = {}
+
+    def dialog = {}
 }

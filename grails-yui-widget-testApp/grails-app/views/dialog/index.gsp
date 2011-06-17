@@ -16,5 +16,7 @@
         <a href="${createLink(controller: 'dialog', action: 'toolTip')}">Example of YUI ToolTip</a>
         <br />
         <a href="${createLink(controller: 'dialog', action: 'simpleDialog')}">Example of YUI Simple Dialog</a>
+        <br />
+        <a href="${createLink(controller: 'dialog', action: 'dialog')}">Example of YUI Dialog</a>
     </body>
 </html>

@@ -13,6 +13,7 @@
         <script type="text/javascript" src="${createLinkTo(dir: 'js/yui-2.9.0/utilities', file: 'utilities.js')}"></script>
         <script type="text/javascript" src="${createLinkTo(dir: 'js/yui-2.9.0/calendar', file: 'calendar-min.js')}"></script>
         <script type="text/javascript" src="${resource(dir: 'js/yui-2.9.0/animation', file: 'animation.js')}"></script>
+        <script type="text/javascript" src="${resource(dir: 'js/yui-2.9.0/dragdrop', file: 'dragdrop.js')}"></script>
 
         <!-- yui2 datasource resources -->
         <script type="text/javascript" src="${createLinkTo(dir: 'js/yui-2.9.0/datasource', file: 'datasource.js')}"></script>
