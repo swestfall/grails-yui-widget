@@ -14,5 +14,7 @@
     </head>
     <body>
         <a href="${createLink(controller: 'local', action: 'liquidDataTable')}">Liquid Data Table Example</a>
+        <br />
+        <a href="${createLink(controller: 'local', action: 'preDefRemoteDataTable')}">Example of PreDefined DataTable</a>
     </body>
 </html>

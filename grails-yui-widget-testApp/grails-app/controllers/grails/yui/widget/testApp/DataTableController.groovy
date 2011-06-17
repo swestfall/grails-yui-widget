@@ -48,6 +48,7 @@ class DataTableController {
     def getStocksJSONSortedPaged = {
         Map pagingParams = util.extractPaginationParams(params)
         List stocks = Stock.list(pagingParams)
+        println "pagingParams : ${pagingParams}"
         Map returnMap = [
                 totalRecords: Stock.count(),
                 startIndex: pagingParams.offset,

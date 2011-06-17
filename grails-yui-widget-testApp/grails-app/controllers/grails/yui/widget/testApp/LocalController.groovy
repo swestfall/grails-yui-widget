@@ -8,4 +8,8 @@ class LocalController {
         List stocks = Stock.findAll()
         return [stocks: stocks]
     }
+
+    def remotingDataTable = {
+
+    }
 }

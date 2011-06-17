@@ -9,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
     <head>
-        <title>Example of Simple Tag Encapsulation</title>
+        <title>Example of a Complex Tag Encapsulation</title>
         <meta name="layout" content="main"/>
     </head>
     <body>
@@ -26,22 +26,17 @@
 
         %>
 
-        <div style="height: width: 100%; padding: 20px;">
-            <local:liquidYuiDataTable
+
+        <div style="height: 100%; width: 100%; padding: 20px;">
+            <local:remoteDataTable
                     id="testTable"
-                    columns="${columns}"
-                    events="${[]}"
-                    namespace="grails.yui.components"
-                    config="${[caption: 'DataTable Caption']}">
-                <yuiWidget:yuiLocalDataSource
-                        data="${stocks}"
-                        config="${[
-                            responseType : '@YAHOO.util.DataSource.TYPE_JSARRAY',
-                            responseSchema: [
-                                    fields: ['id', 'company', 'price', 'change', 'percentChange', 'lastChange']
-                            ]
-                        ]}"/>
-            </local:liquidYuiDataTable>
+                    columns="${columns}">
+                <local:remoteDataSource
+                        url="${createLink(controller: 'dataTable', action: 'getStocksJSONSortedPaged')}"
+                        fields="${['id', 'company', 'price', 'change', 'percentChange', 'lastChange']}" />
+                <local:remotePaginator/>
+            </local:remoteDataTable>
+
         </div>
 
     </body>

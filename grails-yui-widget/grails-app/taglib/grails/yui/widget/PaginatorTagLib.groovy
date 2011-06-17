@@ -12,13 +12,16 @@ class PaginatorTagLib {
         def paginatorID = pageScope.paginatorID
         def events = attrs.remove('events') ?: []
         def config = attrs.remove('config') ?: [:]
+        def props = attrs.remove('props') ?: []
+        def methods = attrs.remove('methods') ?: []
 
         def eventStrings = util.buildEventStrings(paginatorID, events)
 
         out << """
         ${paginatorID} = new YAHOO.widget.Paginator(${util.toJSON(config)});
-        //attach any events created
-        ${eventStrings.join()}
+        grails.yui.util.applyConfig(${paginatorID}, ${util.toJSON(props)});
+        ${util.buildEventStrings(paginatorID, events).join()}
+        ${util.buildMethodStrings(paginatorID, methods).join()}
         """
 
     }
