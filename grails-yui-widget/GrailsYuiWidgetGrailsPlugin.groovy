@@ -11,11 +11,11 @@ class GrailsYuiWidgetGrailsPlugin {
     ]
 
     // TODO Fill in these fields
-    def author = "Your name"
-    def authorEmail = ""
-    def title = "Plugin summary/headline"
+    def author = "Stephen Westfall"
+    def authorEmail = "stephen.westfall@gmail.com"
+    def title = "Grails plugin for YUI 2 Widgets"
     def description = '''\\
-Brief description of the plugin.
+This plugin allows for the creation of YUI Widgets via TagLibs.
 '''
 
     // URL to the plugin's documentation
