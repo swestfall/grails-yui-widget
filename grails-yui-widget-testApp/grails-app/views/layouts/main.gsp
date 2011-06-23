@@ -11,7 +11,6 @@
         <script type="text/javascript" src="${createLinkTo(dir: 'js/yui-2.9.0/yahoo-dom-event', file: 'yahoo-dom-event.js')}"></script>
         <script type="text/javascript" src="${createLinkTo(dir: 'js/yui-2.9.0/element', file: 'element-min.js')}"></script>
         <script type="text/javascript" src="${createLinkTo(dir: 'js/yui-2.9.0/utilities', file: 'utilities.js')}"></script>
-        <script type="text/javascript" src="${createLinkTo(dir: 'js/yui-2.9.0/calendar', file: 'calendar-min.js')}"></script>
         <script type="text/javascript" src="${resource(dir: 'js/yui-2.9.0/animation', file: 'animation.js')}"></script>
         <script type="text/javascript" src="${resource(dir: 'js/yui-2.9.0/dragdrop', file: 'dragdrop.js')}"></script>
 
@@ -39,6 +38,10 @@
         <!-- yui2 button resources -->
         <link type="text/css" rel="stylesheet" href="${resource(dir: 'js/yui-2.9.0/button/assets/skins/sam', file: 'button.css')}"/>
         <script type="text/javascript" src="${resource(dir: 'js/yui-2.9.0/button', file: 'button-min.js')}"></script>
+
+        <!-- yui2 calendar resources -->
+        <link type="text/css" rel="stylesheet" href="${resource(dir: 'js/yui-2.9.0/calendar/assets/skins/sam', file: 'calendar.css')}"/>
+        <script type="text/javascript" src="${resource(dir: 'js/yui-2.9.0/calendar', file: 'calendar-min.js')}"></script>
 
         <link rel="stylesheet" href="${resource(dir: 'css', file: 'main.css')}"/>
         <link rel="shortcut icon" href="${resource(dir: 'images', file: 'favicon.ico')}" type="image/x-icon"/>

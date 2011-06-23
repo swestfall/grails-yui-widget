@@ -10,7 +10,7 @@
 <html>
     <head>
         <title>Example of YUI Simple Dialog</title>
-        <meta name="layout" content="main"/>
+        <meta name="layout" content="main" />
 
         <style>
         #container {
