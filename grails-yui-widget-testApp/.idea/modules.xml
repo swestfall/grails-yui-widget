@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/grails-yui-widget-testApp.iml" filepath="$PROJECT_DIR$/grails-yui-widget-testApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/grails-yui-widget-testApp-grailsPlugins.iml" filepath="$PROJECT_DIR$/grails-yui-widget-testApp-grailsPlugins.iml" />
+      <module fileurl="file://$PROJECT_DIR$/grailsYuiWidget-inplacePlugin.iml" filepath="$PROJECT_DIR$/grailsYuiWidget-inplacePlugin.iml" />
+    </modules>
+  </component>
+</project>
+
