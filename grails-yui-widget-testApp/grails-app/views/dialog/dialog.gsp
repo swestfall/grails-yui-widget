@@ -54,7 +54,7 @@
         <yuiWidget:yuiDialog
                 id="dialog1"
                 config="${[
-                        width : "30em",
+                        width : '30em',
 					    fixedcenter : true,
 					    visible : false,
 					    draggable: true,
