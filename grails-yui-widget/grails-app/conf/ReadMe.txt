@@ -11,30 +11,15 @@ Global Tasks
 Extensibility
 1. Needs to be extendable / customizable
     1.1 Examples of extending / overriding Util obj
-    1.2 Examples of extending / overriding Tag Closures (Done)
-2. Tags can call other tags via closures.  PreConfiguredComponent.  Examples needed. (Done)
 
 DataTable Tasks
-1. JSON over XHR (Done)
-2. JSON over XHR with Paging (Done)
 3. XML over XHR
 4. XML over XHR with Paging
 5. Expanding Row
-6. JSON over XHR with Sorting (Done)
-7. JSON over XHR with Paging & Sorting (Done)
 8. XML over XHR with Sorting
 9. XML over XHR with Sorting & Sorting
 
 
-AutoComplete
-1. Local Data (Done)
-2. JSON over XHR (Done)
-3. XML over XHR (Done)
-
-
 Dialog
-1. Dialog (Done)
-2. SimpleDialog (Done)
-3. ToolTip (Done)
 4. Loading Dialog
 
