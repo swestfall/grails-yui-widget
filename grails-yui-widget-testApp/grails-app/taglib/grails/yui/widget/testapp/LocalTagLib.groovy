@@ -68,8 +68,64 @@ class LocalTagLib {
 
     }
 
-    //TODO: Liquid Width solution doesnt work well with Remoting Grids.  Due to "Loading" behavior
-    //TODO: Liquid Width on Scrollable -- wont work w/o heavy customization. Grid can be set to 100% width via external config.
-    //TODO: Liquid Width on Scrollable -- internal table set to 100% works.  header columns are seperate though.
-    //TODO: Liquid Width on Scrollable -- need solution that follows containing element size and sets internals acoordingly
+    def formCalendar = { attrs, body ->
+
+        //TODO: Respect Namespaces
+        //TODO: Pass through configs
+        //TODO: Calendar should read in input value
+
+        def calID = attrs.id
+        def inputID = attrs.inputID
+        def containerID = calID + '_container'
+        def dialogID = calID + '_dialog'
+
+        //output the required html
+        out << """
+        <div class="box">
+            <div class="datefield">
+                <label for="${inputID}">Date:</label>
+                <input type="text" id="${inputID}" name="date" value=""/>
+                <button type="button" id="show" title="Show Calendar" onclick="grails.yui.components.grailsYuiDialog_${dialogID}.show()">
+                    <img src="assets/calbtn.gif" width="18" height="18" alt="Calendar">
+                </button>
+            </div>
+        </div>
+        """
+
+        def dialogAttrs = [:]
+        dialogAttrs.id = dialogID
+        dialogAttrs.config = [
+                visible: false,
+                draggable: false,
+                close: true,
+                context: ['show', 'tl', 'bl']]
+        dialogAttrs.methods = [
+                "setHeader('Pick a Date')",
+                "setBody(\'<div id=\"${containerID}\"></div><div style=\"clear: both;\"></div>\')",
+                "render(document.body)"
+        ]
+
+        //run the dialog tag
+        out << yuiWidget.yuiDialog(dialogAttrs, body)
+
+        def calAttrs = [:]
+        calAttrs.id = attrs.id
+        calAttrs.container = containerID
+        calAttrs.config = [
+                iframe: false,
+                hide_blank_weeks: true
+        ]
+        calAttrs.methods = [
+                "selectEvent.subscribe(window.handleCalendarSelect, {inputID: '${inputID}', calID : grails.yui.components.grailsYuiCalendar_${calID}, dialogID: grails.yui.components.grailsYuiDialog_${dialogID} })",
+                "render()"
+        ]
+
+        //run the calendar tag
+        out << yuiWidget.yuiCalendar(calAttrs, body)
+    }
+
+//TODO: Liquid Width solution doesnt work well with Remoting Grids.  Due to "Loading" behavior
+//TODO: Liquid Width on Scrollable -- wont work w/o heavy customization. Grid can be set to 100% width via external config.
+//TODO: Liquid Width on Scrollable -- internal table set to 100% works.  header columns are seperate though.
+//TODO: Liquid Width on Scrollable -- need solution that follows containing element size and sets internals acoordingly
 }

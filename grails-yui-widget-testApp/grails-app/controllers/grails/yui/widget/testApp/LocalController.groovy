@@ -12,4 +12,8 @@ class LocalController {
     def remotingDataTable = {
 
     }
+
+    def formCalendar = {
+
+    }
 }

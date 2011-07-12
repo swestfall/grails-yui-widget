@@ -91,59 +91,23 @@
     </head>
     <body>
 
-        <div>Example of a PopUp Calendar</div>
-        <a href="http://developer.yahoo.com/yui/examples/calendar/calcontainer.html">PopUp Calendar</a>
-
-        <div class="box">
-            <div class="datefield">
-                <label for="date">Date:</label>
-                <input type="text" id="date" name="date" value=""/>
-                <!-- onclick="grails.yui.components.grailsYuiDialog_exDialog.show()" -->
-                <button type="button" id="show" title="Show Calendar" onclick="grails.yui.components.grailsYuiDialog_exDialog.show()">
-                    <img src="assets/calbtn.gif" width="18" height="18" alt="Calendar">
-                </button>
-            </div>
-        </div>
-
-        <%
-            def dialogMethods = [
-                    'setHeader(\'Pick a Date\')',
-                    'setBody(\'<div id=\"cal\"></div><div style=\"clear: both;\"></div>\')',
-                    'render(document.body)'
-            ]
-
-        %>
+        <div>Form DatePicker via Custom Tag</div>
 
         <script type="text/javascript">
-            window.handleCalendarSelect = function() {
-                var newDate = grails.yui.components.grailsYuiCalendar_exCal.getSelectedDates()[0]
-                var dateEl = document.getElementById('date')
+            window.handleCalendarSelect = function(sEvent, aDate, oContext) {
+                var newDate = oContext.calID.getSelectedDates()[0]
+                var dateEl = document.getElementById(oContext.inputID)
                 dateEl.value = newDate.toString()
-                grails.yui.components.grailsYuiDialog_exDialog.hide()
+                oContext.dialogID.hide()
             }
         </script>
 
 
-        <yuiWidget:yuiDialog
-                id="exDialog"
-                config="${[
-                        visible:false,
-                        draggable:false,
-                        close:true,
-                        context:['show', 'tl', 'bl']
-                ]}"
-                methods="${dialogMethods}"/>
 
-        <yuiWidget:yuiCalendar
-                id="exCal"
-                container="cal"
-                config="${[
-                        iframe: false,
-                        hide_blank_weeks: true
-                ]}"
-                methods="${[
-                        'selectEvent.subscribe(window.handleCalendarSelect)',
-                        'render()']}"/>
+
+        <local:formCalendar
+                id="formCal"
+                inputID="formCal"/>
 
     </body>
 </html>
