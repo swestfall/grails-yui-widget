@@ -92,6 +92,7 @@ class LocalTagLib {
         </div>
         """
 
+        //configure the dialog tag
         def dialogAttrs = [:]
         dialogAttrs.id = dialogID
         dialogAttrs.config = [
@@ -102,12 +103,14 @@ class LocalTagLib {
         dialogAttrs.methods = [
                 "setHeader('Pick a Date')",
                 "setBody(\'<div id=\"${containerID}\"></div><div style=\"clear: both;\"></div>\')",
+                "beforeShowEvent.subscribe(window.handleCalendarBeforeShow, {inputID: '${inputID}', namespace: grails.yui.components, calID: '${calID}' })",
                 "render(document.body)"
         ]
 
         //run the dialog tag
         out << yuiWidget.yuiDialog(dialogAttrs, body)
 
+        //configure the calendar tag
         def calAttrs = [:]
         calAttrs.id = attrs.id
         calAttrs.container = containerID

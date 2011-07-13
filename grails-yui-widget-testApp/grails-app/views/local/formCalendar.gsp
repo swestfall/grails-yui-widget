@@ -97,13 +97,21 @@
             window.handleCalendarSelect = function(sEvent, aDate, oContext) {
                 var newDate = oContext.calID.getSelectedDates()[0]
                 var dateEl = document.getElementById(oContext.inputID)
-                dateEl.value = newDate.toString()
+                dateEl.value = YAHOO.util.Date.format(newDate, {format: "%m/%d/%Y"})
                 oContext.dialogID.hide()
             }
+            window.handleCalendarBeforeShow = function(sEvent, aDate, oContext) {
+                //this is odd... taglib cant reference an js obj literal before its defined.  so, namespace & id are
+                //passed in, and reference is manually built.  poor implementation - not happy w/ this.
+                var oCal = oContext.namespace['grailsYuiCalendar_' + oContext.calID];
+                var sDate = document.getElementById(oContext.inputID).value;
+                var oDate = new Date(sDate)
+                if (!isNan(oDate.getTime())) {
+                    oCal.select(oDate)
+                    oCal.render()
+                }
+            }
         </script>
-
-
-
 
         <local:formCalendar
                 id="formCal"
