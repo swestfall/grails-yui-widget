@@ -1,7 +1,13 @@
 <!DOCTYPE html>
+
 <html>
     <head>
-        <title><g:layoutTitle default="Grails"/></title>
+        <title>
+            <g:layoutTitle default="Grails"/>
+        </title>
+
+        %{--<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">--}%
+        %{--<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-STORE">--}%
 
         <g:layoutHead/>
 

@@ -7,6 +7,9 @@ Global Tasks
 6. Documentation
 7. JIRA / Mailing List
 8. Test with previous verions of Grails
+9. Static Name Prefixes
+    - "grailsYuiCalendar_", "grailsYuiDialog_"
+    - static availability in both javascript and java
 
 Extensibility
 1. Needs to be extendable / customizable
@@ -19,7 +22,22 @@ DataTable Tasks
 8. XML over XHR with Sorting
 9. XML over XHR with Sorting & Sorting
 
-
 Dialog
 4. Loading Dialog
+
+
+Plans for next version
+1. Allow HTML elements to be passed as part of config
+2. Expandible tables
+3. Static Name Prefixes
+
+
+Version 1.0
+- Initial release
+
+Version 1.1
+- Added Calendar support
+
+Version 1.2
+- Pending
 

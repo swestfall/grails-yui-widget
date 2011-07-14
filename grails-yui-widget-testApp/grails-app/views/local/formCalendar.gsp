@@ -115,7 +115,9 @@
 
         <local:formCalendar
                 id="formCal"
-                inputID="formCal"/>
+                inputID="formCal"
+                namespace="grails.yui.components"
+        />
 
     </body>
 </html>

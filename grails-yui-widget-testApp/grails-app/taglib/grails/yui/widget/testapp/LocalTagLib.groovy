@@ -70,12 +70,11 @@ class LocalTagLib {
 
     def formCalendar = { attrs, body ->
 
-        //TODO: Respect Namespaces
         //TODO: Pass through configs
-        //TODO: Calendar should read in input value
 
         def calID = attrs.id
         def inputID = attrs.inputID
+        def namespace = attrs.namespace
         def containerID = calID + '_container'
         def dialogID = calID + '_dialog'
 
@@ -84,8 +83,8 @@ class LocalTagLib {
         <div class="box">
             <div class="datefield">
                 <label for="${inputID}">Date:</label>
-                <input type="text" id="${inputID}" name="date" value=""/>
-                <button type="button" id="show" title="Show Calendar" onclick="grails.yui.components.grailsYuiDialog_${dialogID}.show()">
+                <input type="text" id="${inputID}" name="date" value="" autocomplete="off"/>
+                <button type="button" id="show" title="Show Calendar" onclick="${namespace}.grailsYuiDialog_${dialogID}.show()">
                     <img src="assets/calbtn.gif" width="18" height="18" alt="Calendar">
                 </button>
             </div>
@@ -95,6 +94,7 @@ class LocalTagLib {
         //configure the dialog tag
         def dialogAttrs = [:]
         dialogAttrs.id = dialogID
+        dialogAttrs.namespace =  namespace
         dialogAttrs.config = [
                 visible: false,
                 draggable: false,
@@ -103,7 +103,7 @@ class LocalTagLib {
         dialogAttrs.methods = [
                 "setHeader('Pick a Date')",
                 "setBody(\'<div id=\"${containerID}\"></div><div style=\"clear: both;\"></div>\')",
-                "beforeShowEvent.subscribe(window.handleCalendarBeforeShow, {inputID: '${inputID}', namespace: grails.yui.components, calID: '${calID}' })",
+                "beforeShowEvent.subscribe(window.handleCalendarBeforeShow, {inputID: '${inputID}', namespace: ${namespace}, calID: '${calID}' })",
                 "render(document.body)"
         ]
 
@@ -114,12 +114,13 @@ class LocalTagLib {
         def calAttrs = [:]
         calAttrs.id = attrs.id
         calAttrs.container = containerID
+        dialogAttrs.namespace =  namespace
         calAttrs.config = [
                 iframe: false,
                 hide_blank_weeks: true
         ]
         calAttrs.methods = [
-                "selectEvent.subscribe(window.handleCalendarSelect, {inputID: '${inputID}', calID : grails.yui.components.grailsYuiCalendar_${calID}, dialogID: grails.yui.components.grailsYuiDialog_${dialogID} })",
+                "selectEvent.subscribe(window.handleCalendarSelect, {inputID: '${inputID}', calID : ${namespace}.grailsYuiCalendar_${calID}, dialogID: ${namespace}.grailsYuiDialog_${dialogID} })",
                 "render()"
         ]
 
