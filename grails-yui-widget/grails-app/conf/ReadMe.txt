@@ -27,9 +27,16 @@ Dialog
 
 
 Plans for next version
-1. Allow HTML elements to be passed as part of config
+1. Allow HTML elements to be passed as part of config - instead of plugin creating it
 2. Expandible tables
 3. Static Name Prefixes
+4. Create JIRA for this project : http://jira.grails.org/browse/ADMIN
+
+Plans for subsequent version
+1. Update Grails Yui Plugin to 2.9.0
+2. Inclusion of Resources Plugin
+3. Skin Example App
+4. Post Example App on GAE
 
 
 Version 1.0
