@@ -48,7 +48,6 @@
       </library>
     </orderEntry>
     <orderEntry type="module" module-name="grailsYuiWidget-inplacePlugin" exported="" />
-    <orderEntry type="module" module-name="grails-yui-widget-testApp-grailsPlugins" />
   </component>
 </module>
 
