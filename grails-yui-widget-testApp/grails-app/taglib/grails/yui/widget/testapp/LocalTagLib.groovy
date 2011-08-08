@@ -114,7 +114,7 @@ class LocalTagLib {
         def calAttrs = [:]
         calAttrs.id = attrs.id
         calAttrs.container = containerID
-        dialogAttrs.namespace =  namespace
+        calAttrs.namespace =  namespace
         calAttrs.config = [
                 iframe: false,
                 hide_blank_weeks: true
