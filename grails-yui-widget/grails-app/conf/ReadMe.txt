@@ -47,12 +47,20 @@ Plans for subsequent version
 4. Post Example App on GAE
 
 
-Version 1.0
-- Initial release
 
-Version 1.1
+Version 0.1.3
+- Pending
+
+Version 0.1.2 - RELEASED
+- Removed JSON Source - Added JSON JAR
+
+Version 0.1.1 - RELEASED
 - Added Calendar support
 
-Version 1.2
-- Pending
+Version 0.1.0 - RELEASED
+- Initial release
+
+
+
+
 
