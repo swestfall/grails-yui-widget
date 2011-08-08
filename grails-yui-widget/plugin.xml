@@ -1,0 +1,25 @@
+<plugin name='grails-yui-widget' version='0.1.1' grailsVersion='1.3.7 &gt; *'>
+  <author>Stephen Westfall</author>
+  <authorEmail>stephen.westfall@gmail.com</authorEmail>
+  <title>Grails plugin for YUI 2 Widgets</title>
+  <description>\
+This plugin allows for the creation of YUI Widgets via TagLibs.
+</description>
+  <documentation>http://grails.org/plugin/grails-yui-widget</documentation>
+  <resources>
+    <resource>BuildConfig</resource>
+    <resource>Config</resource>
+    <resource>DataSource</resource>
+    <resource>UrlMappings</resource>
+    <resource>grails.yui.widget.GrailsYuiWidgetService</resource>
+    <resource>grails.yui.widget.AutoCompleteTagLib</resource>
+    <resource>grails.yui.widget.CalendarTagLib</resource>
+    <resource>grails.yui.widget.DataSourceTagLib</resource>
+    <resource>grails.yui.widget.DataTableTagLib</resource>
+    <resource>grails.yui.widget.DialogTagLib</resource>
+    <resource>grails.yui.widget.PaginatorTagLib</resource>
+    <resource>grails.yui.widget.UtilTagLib</resource>
+  </resources>
+  <dependencies />
+  <behavior />
+</plugin>
